@@ -179,7 +179,7 @@ Dành cho fanpage do cá nhân tạo và quản lý, không nằm trong Business
    - `"id"`: đây là **Page ID**
    - `"access_token"`: đây là **Page Access Token**
 
-![Kết quả me/accounts](/screenshots/facebook/Fb-fanpage-11.png)
+![Kết quả me/accounts](/screenshots/facebook/Fb-fanpage-12.png)
 
 Sao chép lại `id` và `access_token`.
 
