@@ -264,7 +264,7 @@ func (s *SyncEngine) downloadAttachments(tenantID, convID string, msg *channels.
 			continue
 		}
 		// Create directory
-		dir := filepath.Join("/var/lib/cqa/files", tenantID, convID)
+		dir := filepath.Join("/var/lib/cqatp/files", tenantID, convID)
 		if err := os.MkdirAll(dir, 0755); err != nil {
 			log.Printf("[sync] mkdir failed for %s: %v", dir, err)
 			continue

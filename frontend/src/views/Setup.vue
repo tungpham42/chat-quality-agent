@@ -1,7 +1,11 @@
 <template>
   <v-card class="pa-6" elevation="2">
-    <v-card-title class="text-h6 text-center pb-2">Chat Quality Agent</v-card-title>
-    <p class="text-body-2 text-center text-grey mb-4">Tạo tài khoản quản trị viên đầu tiên</p>
+    <v-card-title class="text-h6 text-center pb-2"
+      >Chat Quality Agent</v-card-title
+    >
+    <p class="text-body-2 text-center text-grey mb-4">
+      Tạo tài khoản quản trị viên đầu tiên
+    </p>
     <v-form @submit.prevent="handleSetup">
       <v-text-field
         v-model="email"
@@ -38,7 +42,13 @@
         required
         class="mb-4"
       />
-      <v-btn type="submit" color="primary" block size="large" :loading="loading">
+      <v-btn
+        type="submit"
+        color="primary"
+        block
+        size="large"
+        :loading="loading"
+      >
         Tạo tài khoản
       </v-btn>
     </v-form>
@@ -46,46 +56,49 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import api from '../api'
-import { markSetupComplete } from '../router'
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import api from "../api";
+import { markSetupComplete } from "../router";
 
-const router = useRouter()
+const router = useRouter();
 
-const email = ref('')
-const name = ref('')
-const password = ref('')
-const confirmPassword = ref('')
-const showPass = ref(false)
-const loading = ref(false)
-const errorMsg = ref('')
-const confirmError = ref('')
+const email = ref("");
+const name = ref("");
+const password = ref("");
+const confirmPassword = ref("");
+const showPass = ref(false);
+const loading = ref(false);
+const errorMsg = ref("");
+const confirmError = ref("");
 
 async function handleSetup() {
-  confirmError.value = ''
-  errorMsg.value = ''
+  confirmError.value = "";
+  errorMsg.value = "";
 
   if (password.value !== confirmPassword.value) {
-    confirmError.value = 'Mật khẩu không khớp'
-    return
+    confirmError.value = "Mật khẩu không khớp";
+    return;
   }
 
-  loading.value = true
+  loading.value = true;
   try {
-    const { data } = await api.post('/setup', {
+    const { data } = await api.post("/setup", {
       email: email.value,
       password: password.value,
       name: name.value || undefined,
-    })
-    localStorage.setItem('cqa_access_token', data.access_token)
-    markSetupComplete()
-    router.push('/')
+    });
+    localStorage.setItem("cpa_tp_access_token", data.access_token);
+    markSetupComplete();
+    router.push("/");
   } catch (err: any) {
-    const msg = err.response?.data?.message || err.response?.data?.error || 'Có lỗi xảy ra'
-    errorMsg.value = msg
+    const msg =
+      err.response?.data?.message ||
+      err.response?.data?.error ||
+      "Có lỗi xảy ra";
+    errorMsg.value = msg;
   } finally {
-    loading.value = false
+    loading.value = false;
   }
 }
 </script>

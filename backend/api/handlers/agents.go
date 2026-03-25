@@ -37,19 +37,19 @@ type AgentInfo struct {
 func ListAgents(c *gin.Context) {
 	agents := []AgentInfo{
 		{
-			Name:         "cqa.sync",
-			Description:  "Sync chat messages from external channels (Zalo OA, Facebook) into CQA database",
+			Name:         "cqatp.sync",
+			Description:  "Sync chat messages from external channels (Zalo OA, Facebook) into CQATP database",
 			Version:      "1.0.0",
 			Capabilities: []string{"sync_all", "sync_channel", "query:conversations", "query:messages"},
 		},
 		{
-			Name:         "cqa.qc",
+			Name:         "cqatp.qc",
 			Description:  "Analyze customer service chat quality against defined rules using AI",
 			Version:      "1.0.0",
 			Capabilities: []string{"analyze_quality", "query:violations", "query:scores"},
 		},
 		{
-			Name:         "cqa.classify",
+			Name:         "cqatp.classify",
 			Description:  "Classify and tag conversations using AI-powered rule matching",
 			Version:      "1.0.0",
 			Capabilities: []string{"classify_conversations", "query:tags", "query:rules"},
@@ -89,10 +89,10 @@ func AgentRun(c *gin.Context) {
 	defer cancel()
 
 	switch agentName {
-	case "cqa.sync":
+	case "cqatp.sync":
 		result := handleSyncAgent(ctx, cfg, req)
 		c.JSON(http.StatusOK, result)
-	case "cqa.qc", "cqa.classify":
+	case "cqatp.qc", "cqatp.classify":
 		result := handleAnalysisAgent(ctx, cfg, req, agentName)
 		c.JSON(http.StatusOK, result)
 	default:
@@ -116,11 +116,11 @@ func AgentQuery(c *gin.Context) {
 	}
 
 	switch agentName {
-	case "cqa.sync":
+	case "cqatp.sync":
 		handleSyncQuery(c, tenantID, resource)
-	case "cqa.qc":
+	case "cqatp.qc":
 		handleQCQuery(c, tenantID, resource)
-	case "cqa.classify":
+	case "cqatp.classify":
 		handleClassifyQuery(c, tenantID, resource)
 	default:
 		c.JSON(http.StatusNotFound, gin.H{"error": "agent_not_found"})
@@ -161,7 +161,7 @@ func handleAnalysisAgent(ctx context.Context, cfg *config.Config, req AgentRunRe
 	analyzer := engine.NewAnalyzer(cfg)
 
 	jobType := "qc_analysis"
-	if agentName == "cqa.classify" {
+	if agentName == "cqatp.classify" {
 		jobType = "classification"
 	}
 

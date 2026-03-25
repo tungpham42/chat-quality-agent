@@ -6,16 +6,16 @@ Vào menu **Cài đặt** (icon bánh răng ở sidebar) > tab **Cấu hình chu
 
 ## Các mục cấu hình
 
-| Mục | Mô tả | Mặc định |
-|-----|-------|----------|
-| **Tên công ty** | Hiển thị trên giao diện và trong thông báo | (tên khi tạo tenant) |
-| **Múi giờ** | Ảnh hưởng đến thời gian hiển thị và lịch chạy công việc | Asia/Ho_Chi_Minh |
-| **Ngôn ngữ** | Giao diện Tiếng Việt hoặc English | Tiếng Việt |
-| **Tỉ giá USD → VND** | Dùng để quy đổi chi phí AI sang VND | 26,000 |
+| Mục                  | Mô tả                                                   | Mặc định             |
+| -------------------- | ------------------------------------------------------- | -------------------- |
+| **Tên công ty**      | Hiển thị trên giao diện và trong thông báo              | (tên khi tạo tenant) |
+| **Múi giờ**          | Ảnh hưởng đến thời gian hiển thị và lịch chạy công việc | Asia/Ho_Chi_Minh     |
+| **Ngôn ngữ**         | Giao diện Tiếng Việt hoặc English                       | Tiếng Việt           |
+| **Tỉ giá USD → VND** | Dùng để quy đổi chi phí AI sang VND                     | 26,000               |
 
 ## Tỉ giá USD → VND
 
-Chi phí AI (Claude, Gemini) được tính bằng USD. CQA quy đổi sang VND để bạn dễ theo dõi.
+Chi phí AI (Claude, Gemini) được tính bằng USD. CQATP quy đổi sang VND để bạn dễ theo dõi.
 
 - Mặc định: 26,000 VND/USD
 - Bạn có thể cập nhật theo tỉ giá thực tế

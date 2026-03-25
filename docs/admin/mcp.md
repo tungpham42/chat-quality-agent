@@ -1,17 +1,17 @@
 # Kết nối MCP
 
-MCP (Model Context Protocol) cho phép Claude Web hoặc Claude Desktop truy vấn dữ liệu CQA trực tiếp. Bạn có thể hỏi Claude về cuộc chat, kết quả đánh giá, thống kê... mà không cần mở CQA.
+MCP (Model Context Protocol) cho phép Claude Web hoặc Claude Desktop truy vấn dữ liệu CQATP trực tiếp. Bạn có thể hỏi Claude về cuộc chat, kết quả đánh giá, thống kê... mà không cần mở CQATP.
 
 ## MCP là gì?
 
-MCP là giao thức kết nối AI với các hệ thống bên ngoài. Khi kết nối CQA với Claude qua MCP, bạn có thể:
+MCP là giao thức kết nối AI với các hệ thống bên ngoài. Khi kết nối CQATP với Claude qua MCP, bạn có thể:
 
 - "Hôm nay có bao nhiêu cuộc chat khiếu nại?"
 - "Tóm tắt vấn đề CSKH tuần này"
 - "Cuộc chat nào bị điểm thấp nhất hôm nay?"
 - "Nhân viên nào bị nhiều vi phạm nhất?"
 
-Claude sẽ tự truy vấn CQA và trả lời.
+Claude sẽ tự truy vấn CQATP và trả lời.
 
 ## Tạo kết nối MCP
 
@@ -40,7 +40,7 @@ Thêm cấu hình MCP server:
 {
   "mcpServers": {
     "cqa": {
-      "url": "https://cqa.yourdomain.com/mcp",
+      "url": "https://cqatp.yourdomain.com/mcp",
       "headers": {
         "Authorization": "Bearer YOUR_CLIENT_SECRET"
       }
@@ -49,9 +49,9 @@ Thêm cấu hình MCP server:
 }
 ```
 
-Thay `cqa.yourdomain.com` bằng URL CQA và `YOUR_CLIENT_SECRET` bằng secret vừa copy.
+Thay `cqatp.yourdomain.com` bằng URL CQATP và `YOUR_CLIENT_SECRET` bằng secret vừa copy.
 
-Khởi động lại Claude Desktop. Bạn sẽ thấy icon CQA trong danh sách MCP tools.
+Khởi động lại Claude Desktop. Bạn sẽ thấy icon CQATP trong danh sách MCP tools.
 
 ## Kết nối với Claude Web
 
@@ -59,18 +59,18 @@ Claude Web hỗ trợ MCP qua OAuth:
 
 1. Vào Claude Web ([claude.ai](https://claude.ai))
 2. Bấm icon MCP > **Add MCP Server**
-3. Nhập URL: `https://cqa.yourdomain.com/mcp`
+3. Nhập URL: `https://cqatp.yourdomain.com/mcp`
 4. Xác thực bằng Client ID và Client Secret
 
 ## Các công cụ MCP có sẵn
 
-| Tool | Mô tả |
-|------|-------|
-| **conversations** | Lấy danh sách cuộc hội thoại gần đây |
-| **transcripts** | Đọc nội dung tin nhắn của 1 cuộc chat |
-| **evaluations** | Xem kết quả đánh giá QC |
-| **statistics** | Thống kê tổng quan (số chat, tỉ lệ đạt, chi phí...) |
+| Tool              | Mô tả                                               |
+| ----------------- | --------------------------------------------------- |
+| **conversations** | Lấy danh sách cuộc hội thoại gần đây                |
+| **transcripts**   | Đọc nội dung tin nhắn của 1 cuộc chat               |
+| **evaluations**   | Xem kết quả đánh giá QC                             |
+| **statistics**    | Thống kê tổng quan (số chat, tỉ lệ đạt, chi phí...) |
 
 ## Thu hồi kết nối
 
-Bấm **Thu hồi** bên cạnh kết nối trong danh sách. Sau khi thu hồi, Claude không thể truy cập CQA qua kết nối đó nữa.
+Bấm **Thu hồi** bên cạnh kết nối trong danh sách. Sau khi thu hồi, Claude không thể truy cập CQATP qua kết nối đó nữa.

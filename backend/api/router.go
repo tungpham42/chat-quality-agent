@@ -46,9 +46,9 @@ func SetupRouter(cfg *config.Config) *gin.Engine {
 			c.JSON(http.StatusForbidden, gin.H{"error": "forbidden"})
 			return
 		}
-		fullPath := filepath.Join("/var/lib/cqa/files", cleanPath)
+		fullPath := filepath.Join("/var/lib/cqatp/files", cleanPath)
 		// Verify resolved path is within base directory
-		if !strings.HasPrefix(fullPath, "/var/lib/cqa/files") {
+		if !strings.HasPrefix(fullPath, "/var/lib/cqatp/files") {
 			c.JSON(http.StatusForbidden, gin.H{"error": "forbidden"})
 			return
 		}

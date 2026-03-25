@@ -47,7 +47,7 @@ func main() {
 	router := api.SetupRouter(cfg)
 
 	// Start server
-	log.Printf("CQA server starting on %s (env: %s)", cfg.ListenAddr(), cfg.Env)
+	log.Printf("CQATP server starting on %s (env: %s)", cfg.ListenAddr(), cfg.Env)
 	if err := router.Run(cfg.ListenAddr()); err != nil {
 		log.Fatalf("Failed to start server: %v", err)
 	}

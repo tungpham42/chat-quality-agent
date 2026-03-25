@@ -1,14 +1,14 @@
 # Người dùng & phân quyền
 
-CQA hỗ trợ phân quyền theo mô hình **Owner > Admin > Member**.
+CQATP hỗ trợ phân quyền theo mô hình **Owner > Admin > Member**.
 
 ## Vai trò (Role)
 
-| Vai trò | Quyền hạn |
-|---------|-----------|
-| **Owner** | Toàn quyền. Tạo/xóa công ty, quản lý tất cả user (kể cả admin). Mỗi công ty có 1 owner. |
-| **Admin** | Quản lý kênh, công việc, xem kết quả, mời/xóa member. Không thể xóa công ty hoặc quản lý admin khác. |
-| **Member** | Quyền hạn chế theo cấu hình. Chỉ truy cập các tính năng được cho phép. |
+| Vai trò    | Quyền hạn                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------- |
+| **Owner**  | Toàn quyền. Tạo/xóa công ty, quản lý tất cả user (kể cả admin). Mỗi công ty có 1 owner.              |
+| **Admin**  | Quản lý kênh, công việc, xem kết quả, mời/xóa member. Không thể xóa công ty hoặc quản lý admin khác. |
+| **Member** | Quyền hạn chế theo cấu hình. Chỉ truy cập các tính năng được cho phép.                               |
 
 ## Thêm người dùng
 
@@ -18,23 +18,23 @@ Vào menu **Người dùng** ở sidebar, bấm **Thêm người dùng**.
 
 ### Thông tin cần nhập
 
-| Trường | Bắt buộc | Mô tả |
-|--------|----------|-------|
-| **Tên hiển thị** | Có | Tên hiển thị trên giao diện |
-| **Email** | Có | Email đăng nhập (phải là email hợp lệ) |
-| **Mật khẩu** | Có | Tối thiểu 8 ký tự, có chữ hoa và số |
-| **Vai trò** | Có | Admin hoặc Member |
+| Trường           | Bắt buộc | Mô tả                                  |
+| ---------------- | -------- | -------------------------------------- |
+| **Tên hiển thị** | Có       | Tên hiển thị trên giao diện            |
+| **Email**        | Có       | Email đăng nhập (phải là email hợp lệ) |
+| **Mật khẩu**     | Có       | Tối thiểu 8 ký tự, có chữ hoa và số    |
+| **Vai trò**      | Có       | Admin hoặc Member                      |
 
 ## Phân quyền cho Member
 
 Khi chọn vai trò **Member**, bạn sẽ thấy bảng phân quyền:
 
-| Tính năng | View (Xem) | Edit (Sửa) |
-|-----------|-----------|-----------|
-| **Kênh chat** | Xem danh sách kênh | Thêm/sửa/xóa kênh, đồng bộ |
-| **Tin nhắn** | Xem cuộc hội thoại | Xuất tin nhắn |
-| **Công việc** | Xem danh sách, kết quả | Tạo/sửa/chạy công việc |
-| **Cài đặt** | Xem cấu hình | Thay đổi cấu hình |
+| Tính năng     | View (Xem)             | Edit (Sửa)                 |
+| ------------- | ---------------------- | -------------------------- |
+| **Kênh chat** | Xem danh sách kênh     | Thêm/sửa/xóa kênh, đồng bộ |
+| **Tin nhắn**  | Xem cuộc hội thoại     | Xuất tin nhắn              |
+| **Công việc** | Xem danh sách, kết quả | Tạo/sửa/chạy công việc     |
+| **Cài đặt**   | Xem cấu hình           | Thay đổi cấu hình          |
 
 - **Không tick**: Không truy cập được tính năng
 - **Tick View**: Chỉ xem, không sửa
@@ -43,6 +43,7 @@ Khi chọn vai trò **Member**, bạn sẽ thấy bảng phân quyền:
 ## Đổi vai trò
 
 Trong danh sách người dùng, thay đổi vai trò qua dropdown **Role**:
+
 - Chuyển Member → Admin: user có toàn quyền (không cần cấu hình phân quyền)
 - Chuyển Admin → Member: cần cấu hình phân quyền chi tiết
 
@@ -63,6 +64,7 @@ User sẽ bị đăng xuất khỏi tất cả thiết bị và phải đăng nh
 ## Đổi mật khẩu của chính mình
 
 Vào menu **Cài đặt** > tab **Đổi mật khẩu**:
+
 1. Nhập mật khẩu hiện tại
 2. Nhập mật khẩu mới
 3. Bấm **Đổi mật khẩu**

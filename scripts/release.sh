@@ -10,12 +10,12 @@ fi
 
 PLATFORMS="linux/amd64,linux/arm64"
 
-echo "=== Building CQA v${VERSION} (${PLATFORMS}) ==="
+echo "=== Building CQATP v${VERSION} (${PLATFORMS}) ==="
 
 # Ensure buildx builder exists
-docker buildx inspect cqa-builder >/dev/null 2>&1 || \
-    docker buildx create --name cqa-builder --use
-docker buildx use cqa-builder
+docker buildx inspect cqatp-builder >/dev/null 2>&1 || \
+    docker buildx create --name cqatp-builder --use
+docker buildx use cqatp-builder
 
 # Build and push app image (multi-platform)
 echo "Building buitanviet/chat-quality-agent:${VERSION}..."

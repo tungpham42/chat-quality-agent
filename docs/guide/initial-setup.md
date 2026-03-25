@@ -4,7 +4,7 @@ Sau khi cài đặt xong, bạn cần thực hiện các bước thiết lập b
 
 ## Bước 1: Tạo tài khoản admin
 
-Mở trình duyệt, truy cập URL CQA (ví dụ `http://<IP-VPS>` hoặc `https://cqa.yourdomain.com`).
+Mở trình duyệt, truy cập URL CQATP (ví dụ `http://<IP-VPS>` hoặc `https://cqatp.yourdomain.com`).
 
 Lần đầu tiên, bạn sẽ thấy trang **Thiết lập ban đầu**:
 

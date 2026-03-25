@@ -11,7 +11,7 @@ version: "3.8"
 services:
   nginx:
     image: buitanviet/chat-quality-agent-nginx:latest
-    container_name: cqa-nginx
+    container_name: cqatp-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -27,7 +27,7 @@ services:
 
   app:
     image: buitanviet/chat-quality-agent:latest
-    container_name: cqa-app
+    container_name: cqatp-app
     restart: unless-stopped
     expose:
       - "8080"
@@ -41,7 +41,7 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - file_storage:/var/lib/cqa/files
+      - file_storage:/var/lib/cqatp/files
     tmpfs:
       - /tmp
     security_opt:
@@ -49,12 +49,12 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: cqa-db
+    container_name: cqatp-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME:-cqa}
-      MYSQL_USER: ${DB_USER:-cqa}
+      MYSQL_DATABASE: ${DB_NAME:-cqatp}
+      MYSQL_USER: ${DB_USER:-cqatp}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
