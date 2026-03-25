@@ -220,7 +220,7 @@ func DeleteChannel(c *gin.Context) {
 	if len(convIDs) > 0 {
 		// Delete local attachment files
 		for _, convID := range convIDs {
-			dir := filepath.Join("/var/lib/cqatp/files", tenantID, convID)
+			dir := filepath.Join("/var/lib/cqa/files", tenantID, convID)
 			os.RemoveAll(dir)
 		}
 		db.DB.Where("conversation_id IN ? AND tenant_id = ?", convIDs, tenantID).Delete(&models.Message{})
@@ -261,7 +261,7 @@ func PurgeChannelConversations(c *gin.Context) {
 
 		// Delete local attachment files for each conversation
 		for _, convID := range convIDs {
-			dir := filepath.Join("/var/lib/cqatp/files", tenantID, convID)
+			dir := filepath.Join("/var/lib/cqa/files", tenantID, convID)
 			if err := os.RemoveAll(dir); err != nil {
 				log.Printf("[sync] failed to remove files dir %s: %v", dir, err)
 			}

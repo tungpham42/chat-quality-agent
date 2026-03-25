@@ -1,6 +1,6 @@
 # Cấu hình AI
 
-CQATP sử dụng AI để đọc và đánh giá cuộc chat. Bạn cần cấu hình AI provider và API key trước khi sử dụng.
+CQA sử dụng AI để đọc và đánh giá cuộc chat. Bạn cần cấu hình AI provider và API key trước khi sử dụng.
 
 ## Cấu hình AI Provider
 
@@ -10,10 +10,10 @@ Vào menu **Cài đặt** > tab **Cấu hình AI**.
 
 ### Bước 1: Chọn Provider
 
-| Provider               | Ưu điểm                                 | Nhược điểm                   |
-| ---------------------- | --------------------------------------- | ---------------------------- |
-| **Claude** (Anthropic) | Phân tích tiếng Việt tốt, chính xác cao | Giá cao hơn Gemini           |
-| **Gemini** (Google)    | Giá rẻ, tốc độ nhanh                    | Độ chính xác thấp hơn Claude |
+| Provider | Ưu điểm | Nhược điểm |
+|----------|---------|------------|
+| **Claude** (Anthropic) | Phân tích tiếng Việt tốt, chính xác cao | Giá cao hơn Gemini |
+| **Gemini** (Google) | Giá rẻ, tốc độ nhanh | Độ chính xác thấp hơn Claude |
 
 ### Bước 2: Chọn Model
 
@@ -53,13 +53,13 @@ Batch mode gom nhiều cuộc chat vào 1 lần gọi AI, giúp tiết kiệm to
 1. Bật **Chế độ Batch**
 2. Chọn **Batch Size** (số cuộc chat gom lại):
 
-| Batch Size | Tiết kiệm | Rủi ro     | Khuyến nghị                   |
-| ---------- | --------- | ---------- | ----------------------------- |
-| 3          | ~40%      | Thấp       | Mới bắt đầu                   |
-| 5          | ~60%      | Thấp       | Khuyến nghị chung             |
-| 10         | ~75%      | Trung bình | Đã quen, chat đơn giản        |
-| 15-20      | ~80%      | Cao        | Chat ngắn, phân loại đơn giản |
-| 30         | ~85%      | Cao        | Chỉ dùng cho phân loại        |
+| Batch Size | Tiết kiệm | Rủi ro | Khuyến nghị |
+|-----------|-----------|--------|-------------|
+| 3 | ~40% | Thấp | Mới bắt đầu |
+| 5 | ~60% | Thấp | Khuyến nghị chung |
+| 10 | ~75% | Trung bình | Đã quen, chat đơn giản |
+| 15-20 | ~80% | Cao | Chat ngắn, phân loại đơn giản |
+| 30 | ~85% | Cao | Chỉ dùng cho phân loại |
 
 ::: tip Khuyến nghị
 Bắt đầu với batch size **5**. Sau khi kiểm tra kết quả chính xác, tăng lên **10**.
@@ -74,10 +74,10 @@ Batch size lớn = nếu API lỗi, mất kết quả nhiều cuộc chat cùng 
 
 Ví dụ đánh giá 100 cuộc chat:
 
-| Chế độ      | Số lần gọi API | Chi phí ước tính (Claude Sonnet) |
-| ----------- | -------------- | -------------------------------- |
-| Không batch | 100 lần        | ~$2.00                           |
-| Batch 5     | 20 lần         | ~$0.80                           |
-| Batch 10    | 10 lần         | ~$0.50                           |
+| Chế độ | Số lần gọi API | Chi phí ước tính (Claude Sonnet) |
+|--------|----------------|----------------------------------|
+| Không batch | 100 lần | ~$2.00 |
+| Batch 5 | 20 lần | ~$0.80 |
+| Batch 10 | 10 lần | ~$0.50 |
 
-_Chi phí thực tế phụ thuộc vào độ dài cuộc chat._
+*Chi phí thực tế phụ thuộc vào độ dài cuộc chat.*

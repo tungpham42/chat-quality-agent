@@ -1,4 +1,3 @@
-//go:build integration
 // +build integration
 
 package engine
@@ -87,7 +86,7 @@ func TestIntegrationFullJobFlow(t *testing.T) {
 	// Connect to test DB (uses env vars or defaults to Docker container)
 	dsn := os.Getenv("TEST_DB_DSN")
 	if dsn == "" {
-		dsn = "cqatp:cpa_tp_password@tcp(127.0.0.1:3307)/cqa?charset=utf8mb4&parseTime=True&loc=UTC"
+		dsn = "cqa:cqa_password@tcp(127.0.0.1:3307)/cqa?charset=utf8mb4&parseTime=True&loc=UTC"
 	}
 
 	if err := db.Connect(dsn, false); err != nil {

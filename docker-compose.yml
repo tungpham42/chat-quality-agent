@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile.nginx
-    container_name: cqatp-nginx
+    container_name: cqa-nginx
     restart: unless-stopped
     ports:
       - "80:80"
@@ -21,7 +21,7 @@ services:
 
   app:
     build: .
-    container_name: cqatp-app
+    container_name: cqa-app
     restart: unless-stopped
     expose:
       - "8080"
@@ -35,7 +35,7 @@ services:
       db:
         condition: service_healthy
     volumes:
-      - file_storage:/var/lib/cqatp/files
+      - file_storage:/var/lib/cqa/files
     tmpfs:
       - /tmp
     security_opt:
@@ -43,12 +43,12 @@ services:
 
   db:
     image: mysql:8.0
-    container_name: cqatp-db
+    container_name: cqa-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DB_NAME:-cqatp}
-      MYSQL_USER: ${DB_USER:-cqatp}
+      MYSQL_DATABASE: ${DB_NAME:-cqa}
+      MYSQL_USER: ${DB_USER:-cqa}
       MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql

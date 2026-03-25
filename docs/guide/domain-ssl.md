@@ -1,6 +1,6 @@
 # Tên miền & SSL
 
-CQATP hỗ trợ SSL tự động qua Let's Encrypt. Certificate được tạo và gia hạn hoàn toàn tự động.
+CQA hỗ trợ SSL tự động qua Let's Encrypt. Certificate được tạo và gia hạn hoàn toàn tự động.
 
 ## Trỏ tên miền
 
@@ -14,7 +14,7 @@ CQATP hỗ trợ SSL tự động qua Let's Encrypt. Certificate được tạo 
 3. Chờ DNS cập nhật (thường 5-15 phút). Kiểm tra:
 
 ```bash
-ping cqatp.yourdomain.com
+ping cqa.yourdomain.com
 ```
 
 Nếu trả về đúng IP VPS là DNS đã cập nhật.
@@ -24,35 +24,34 @@ Nếu trả về đúng IP VPS là DNS đã cập nhật.
 Mở file `.env` trên VPS:
 
 ```bash
-nano /opt/cqatp/.env
+nano /opt/cqa/.env
 ```
 
 Thêm hoặc sửa 2 dòng:
 
 ```env
-LEGO_DOMAIN=cqatp.yourdomain.com
+LEGO_DOMAIN=cqa.yourdomain.com
 LEGO_EMAIL=admin@yourdomain.com
 ```
 
 Khởi động lại:
 
 ```bash
-cd /opt/cqatp
+cd /opt/cqa
 docker compose down
 docker compose up -d
 ```
 
-CQATP sẽ tự động:
-
+CQA sẽ tự động:
 - Tạo SSL certificate từ Let's Encrypt
 - Chuyển hướng HTTP → HTTPS
 - Kiểm tra và gia hạn certificate mỗi 7 ngày
 
-Truy cập: `https://cqatp.yourdomain.com`
+Truy cập: `https://cqa.yourdomain.com`
 
 ## Chạy không cần SSL (HTTP only)
 
-Nếu không cần SSL (ví dụ test local hoặc mạng nội bộ), **không cần** điền `LEGO_DOMAIN`. CQATP sẽ tự chạy ở chế độ HTTP trên port 80.
+Nếu không cần SSL (ví dụ test local hoặc mạng nội bộ), **không cần** điền `LEGO_DOMAIN`. CQA sẽ tự chạy ở chế độ HTTP trên port 80.
 
 ## Kiểm tra SSL
 
@@ -63,7 +62,7 @@ docker compose logs nginx --tail=20
 Bạn sẽ thấy:
 
 ```
-Certificate obtained for cqatp.yourdomain.com
+Certificate obtained for cqa.yourdomain.com
 Starting nginx with SSL...
 ```
 
@@ -71,11 +70,11 @@ Hoặc kiểm tra trên trình duyệt — bấm vào icon khóa bên cạnh URL
 
 ## Xử lý lỗi SSL
 
-| Lỗi                            | Nguyên nhân                  | Cách sửa                              |
-| ------------------------------ | ---------------------------- | ------------------------------------- |
-| `Could not obtain certificate` | DNS chưa trỏ đúng            | Kiểm tra DNS A record                 |
-| `Too many requests`            | Đã request quá 5 lần/tuần    | Chờ 1 tuần hoặc dùng staging          |
-| `Port 80 already in use`       | Có service khác dùng port 80 | Dừng service đó (Apache, nginx cũ...) |
+| Lỗi | Nguyên nhân | Cách sửa |
+|-----|-------------|----------|
+| `Could not obtain certificate` | DNS chưa trỏ đúng | Kiểm tra DNS A record |
+| `Too many requests` | Đã request quá 5 lần/tuần | Chờ 1 tuần hoặc dùng staging |
+| `Port 80 already in use` | Có service khác dùng port 80 | Dừng service đó (Apache, nginx cũ...) |
 
 ## Bước tiếp theo
 

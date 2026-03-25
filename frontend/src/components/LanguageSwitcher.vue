@@ -21,22 +21,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const { locale } = useI18n();
+const { locale } = useI18n()
 
 const languages = [
-  { code: "vi", label: "Tiếng Việt" },
-  { code: "en", label: "English" },
-];
+  { code: 'vi', label: 'Tiếng Việt' },
+  { code: 'en', label: 'English' },
+]
 
-const currentLabel = computed(
-  () => languages.find((l) => l.code === locale.value)?.label || "Tiếng Việt",
-);
+const currentLabel = computed(() => languages.find((l) => l.code === locale.value)?.label || 'Tiếng Việt')
 
 function switchLocale(code: string) {
-  locale.value = code;
-  localStorage.setItem("cpa_tp_locale", code);
+  locale.value = code
+  localStorage.setItem('cqa_locale', code)
 }
 </script>

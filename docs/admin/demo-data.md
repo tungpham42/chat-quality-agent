@@ -1,6 +1,6 @@
 # Dữ liệu demo
 
-CQATP cung cấp bộ dữ liệu demo gồm **220 cuộc hội thoại mẫu** từ kịch bản quán coffee. Giúp bạn trải nghiệm đầy đủ tính năng trước khi kết nối kênh chat thật.
+CQA cung cấp bộ dữ liệu demo gồm **220 cuộc hội thoại mẫu** từ kịch bản quán coffee. Giúp bạn trải nghiệm đầy đủ tính năng trước khi kết nối kênh chat thật.
 
 ## Import dữ liệu demo
 
@@ -19,7 +19,6 @@ Bấm **Import dữ liệu demo**.
 - Tin nhắn có nội dung thực tế bằng tiếng Việt
 
 Sau khi import, bạn có thể:
-
 1. Xem tin nhắn trong menu **Tin nhắn**
 2. Tạo công việc QC hoặc Phân loại
 3. Chạy phân tích AI

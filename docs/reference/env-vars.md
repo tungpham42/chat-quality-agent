@@ -6,7 +6,7 @@ Danh sách đầy đủ các biến môi trường trong file `.env`.
 
 | Biến                  | Mô tả                                     | Ví dụ                  |
 | --------------------- | ----------------------------------------- | ---------------------- |
-| `DB_PASSWORD`         | Mật khẩu MySQL cho user CQATP             | `openssl rand -hex 16` |
+| `DB_PASSWORD`         | Mật khẩu MySQL cho user CQA               | `openssl rand -hex 16` |
 | `MYSQL_ROOT_PASSWORD` | Mật khẩu root MySQL                       | `openssl rand -hex 16` |
 | `JWT_SECRET`          | Secret cho JWT tokens, tối thiểu 32 ký tự | `openssl rand -hex 32` |
 | `ENCRYPTION_KEY`      | Key 32 bytes cho mã hóa AES-256-GCM       | `openssl rand -hex 16` |

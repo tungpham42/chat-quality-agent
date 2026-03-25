@@ -170,7 +170,7 @@ func DeleteTenant(c *gin.Context) {
 	// Full cascade delete: child → parent order
 
 	// 0. Delete all local attachment files for this tenant
-	os.RemoveAll(filepath.Join("/var/lib/cqatp/files", tenantID))
+	os.RemoveAll(filepath.Join("/var/lib/cqa/files", tenantID))
 
 	// 1. Messages (via conversations)
 	var convIDs []string

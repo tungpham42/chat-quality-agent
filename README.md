@@ -1,4 +1,4 @@
-# Chat Quality Agent (CQATP)
+# Chat Quality Agent (CQA)
 
 [![Docker Hub](https://img.shields.io/docker/v/buitanviet/chat-quality-agent?label=Docker%20Hub&sort=semver)](https://hub.docker.com/r/buitanviet/chat-quality-agent)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -48,7 +48,7 @@ Truy cập: **http://your-server-ip** (hoặc `http://localhost` nếu cài trê
 Thêm vào file `.env`:
 
 ```
-LEGO_DOMAIN=cqatp.yourdomain.com
+LEGO_DOMAIN=cqa.yourdomain.com
 LEGO_EMAIL=admin@yourdomain.com
 ```
 
@@ -80,7 +80,7 @@ SSL sẽ tự động tạo và gia hạn qua Let's Encrypt.
                     └──────┬───────┘
                            │
                     ┌──────┴───────┐
-                    │   CQATP App    │ Port 8080 (internal)
+                    │   CQA App    │ Port 8080 (internal)
                     │ Go + Vue SPA │
                     └──────┬───────┘
                            │

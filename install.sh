@@ -8,10 +8,10 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 REPO="https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main"
-CQATP_DIR="/opt/cqatp"
+CQA_DIR="/opt/cqa"
 
 echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}  Chat Quality Agent (CQATP) Installer    ${NC}"
+echo -e "${GREEN}  Chat Quality Agent (CQA) Installer    ${NC}"
 echo -e "${GREEN}========================================${NC}"
 echo ""
 
@@ -140,9 +140,9 @@ install_docker
 install_compose
 
 # Create directory
-echo -e "${YELLOW}Tao thu muc $CQATP_DIR...${NC}"
-mkdir -p "$CQATP_DIR"
-cd "$CQATP_DIR"
+echo -e "${YELLOW}Tao thu muc $CQA_DIR...${NC}"
+mkdir -p "$CQA_DIR"
+cd "$CQA_DIR"
 
 # Download docker-compose
 echo -e "${YELLOW}Tai docker-compose.hub.yml...${NC}"
@@ -171,9 +171,9 @@ APP_ENV=production
 # Database
 DB_HOST=db
 DB_PORT=3307
-DB_USER=cqatp
+DB_USER=cqa
 DB_PASSWORD=${DB_PASSWORD}
-DB_NAME=cqatp
+DB_NAME=cqa
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
 # Security
@@ -185,7 +185,7 @@ RATE_LIMIT_PER_IP=500
 RATE_LIMIT_PER_USER=1000
 
 # SSL (de trong neu khong can SSL)
-# LEGO_DOMAIN=cqatp.yourdomain.com
+# LEGO_DOMAIN=cqa.yourdomain.com
 # LEGO_EMAIL=admin@yourdomain.com
 EOF
 
@@ -193,7 +193,7 @@ EOF
 fi
 
 # Pull and start services
-echo -e "${YELLOW}Dang khoi dong CQATP...${NC}"
+echo -e "${YELLOW}Dang khoi dong CQA...${NC}"
 docker compose pull
 docker compose up -d
 
@@ -201,7 +201,7 @@ docker compose up -d
 echo -e "${YELLOW}Cho services san sang...${NC}"
 for i in {1..30}; do
   if curl -sf http://localhost/health > /dev/null 2>&1; then
-    echo -e "${GREEN}CQATP da chay!${NC}"
+    echo -e "${GREEN}CQA da chay!${NC}"
     break
   fi
   sleep 2
@@ -217,6 +217,6 @@ echo ""
 echo -e "  URL: http://${IP}"
 echo -e "  Mo trinh duyet va tao tai khoan admin."
 echo ""
-echo -e "${YELLOW}  Cau hinh: ${CQATP_DIR}/.env${NC}"
-echo -e "${YELLOW}  Xem log:  cd ${CQATP_DIR} && docker compose logs -f${NC}"
+echo -e "${YELLOW}  Cau hinh: ${CQA_DIR}/.env${NC}"
+echo -e "${YELLOW}  Xem log:  cd ${CQA_DIR} && docker compose logs -f${NC}"
 echo ""

@@ -15,7 +15,7 @@ Hỗ trợ macOS và Windows (qua Docker Desktop) nếu muốn chạy trên máy
 
 ## Cài đặt trên VPS
 
-Có 2 cách cài đặt CQATP. Khuyến nghị dùng cách 1 (tự động) cho đơn giản nhất.
+Có 2 cách cài đặt CQA. Khuyến nghị dùng cách 1 (tự động) cho đơn giản nhất.
 
 ## Cách 1: Cài tự động (khuyến nghị)
 
@@ -33,8 +33,8 @@ Sau khi chạy xong, bạn sẽ thấy:
 ========================================
   URL: http://<IP-VPS>
   Mở trình duyệt và tạo tài khoản admin.
-  Cấu hình: /opt/cqatp/.env
-  Xem log:  cd /opt/cqatp && docker compose logs -f
+  Cấu hình: /opt/cqa/.env
+  Xem log:  cd /opt/cqa && docker compose logs -f
 ```
 
 Mở trình duyệt, truy cập `http://<IP-VPS>` — bạn sẽ thấy trang **Thiết lập ban đầu** để tạo tài khoản admin.
@@ -75,7 +75,7 @@ Lần đầu sẽ hiện trang Setup để tạo tài khoản admin.
 ## Kiểm tra trạng thái
 
 ```bash
-cd /opt/cqatp  # hoặc thư mục cài đặt
+cd /opt/cqa  # hoặc thư mục cài đặt
 docker compose ps
 ```
 
@@ -83,9 +83,9 @@ Kết quả bình thường:
 
 ```
 NAME        STATUS         PORTS
-cqatp-app     Up             0.0.0.0:8080->8080/tcp
-cqatp-db      Up (healthy)   127.0.0.1:3307->3307/tcp
-cqatp-nginx   Up             0.0.0.0:80->80/tcp
+cqa-app     Up             0.0.0.0:8080->8080/tcp
+cqa-db      Up (healthy)   127.0.0.1:3307->3307/tcp
+cqa-nginx   Up             0.0.0.0:80->80/tcp
 ```
 
 ## Xem log
@@ -99,7 +99,7 @@ docker compose logs nginx -f  # Chỉ xem nginx
 ## Cập nhật phiên bản mới
 
 ```bash
-cd /opt/cqatp
+cd /opt/cqa
 docker compose pull
 docker compose up -d
 ```
@@ -107,9 +107,9 @@ docker compose up -d
 ## Gỡ cài đặt
 
 ```bash
-cd /opt/cqatp
+cd /opt/cqa
 docker compose down -v   # -v xóa cả database
-rm -rf /opt/cqatp
+rm -rf /opt/cqa
 ```
 
 ::: warning Lưu ý
