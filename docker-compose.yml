@@ -30,7 +30,7 @@ services:
     environment:
       - APP_ENV=production
       - DB_HOST=db
-      - DB_PORT=3306
+      - DB_PORT=3307
     depends_on:
       db:
         condition: service_healthy

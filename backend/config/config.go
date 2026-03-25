@@ -38,7 +38,7 @@ func Load() (*Config, error) {
 		ServerPort:       getEnv("SERVER_PORT", "8080"),
 		ServerHost:       getEnv("SERVER_HOST", "127.0.0.1"),
 		DBHost:           getEnv("DB_HOST", "localhost"),
-		DBPort:           getEnv("DB_PORT", "3306"),
+		DBPort:           getEnv("DB_PORT", "3307"),
 		DBUser:           getEnv("DB_USER", "cqa"),
 		DBPassword:       getEnv("DB_PASSWORD", ""),
 		DBName:           getEnv("DB_NAME", "cqa"),

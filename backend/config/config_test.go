@@ -45,11 +45,11 @@ func TestDSN(t *testing.T) {
 		DBUser:     "testuser",
 		DBPassword: "testpass",
 		DBHost:     "localhost",
-		DBPort:     "3306",
+		DBPort:     "3307",
 		DBName:     "testdb",
 	}
 	dsn := cfg.DSN()
-	expected := "testuser:testpass@tcp(localhost:3306)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
+	expected := "testuser:testpass@tcp(localhost:3307)/testdb?charset=utf8mb4&parseTime=True&loc=Local"
 	if dsn != expected {
 		t.Errorf("DSN = %q, want %q", dsn, expected)
 	}

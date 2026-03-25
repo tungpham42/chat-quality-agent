@@ -2,12 +2,12 @@
 
 ## Yêu cầu hệ thống
 
-| | Tối thiểu | Khuyến nghị (10-50 kênh) |
-|---|---|---|
-| CPU | 1 vCPU | 2 vCPU |
-| RAM | 1 GB | 2 GB |
-| Ổ cứng | 10 GB | 20 GB |
-| OS | Ubuntu 20.04+ / Debian 11+ / AlmaLinux 8+ | Ubuntu 22.04 LTS |
+|        | Tối thiểu                                 | Khuyến nghị (10-50 kênh) |
+| ------ | ----------------------------------------- | ------------------------ |
+| CPU    | 1 vCPU                                    | 2 vCPU                   |
+| RAM    | 1 GB                                      | 2 GB                     |
+| Ổ cứng | 10 GB                                     | 20 GB                    |
+| OS     | Ubuntu 20.04+ / Debian 11+ / AlmaLinux 8+ | Ubuntu 22.04 LTS         |
 
 Yêu cầu: **Docker** và **Docker Compose** (script cài tự động sẽ cài nếu chưa có).
 
@@ -66,6 +66,7 @@ docker compose up -d --build
 ```
 
 Truy cập:
+
 - Nếu trên VPS: `http://<IP-VPS>`
 - Nếu trên máy local: `http://localhost`
 
@@ -83,7 +84,7 @@ Kết quả bình thường:
 ```
 NAME        STATUS         PORTS
 cqa-app     Up             0.0.0.0:8080->8080/tcp
-cqa-db      Up (healthy)   127.0.0.1:3306->3306/tcp
+cqa-db      Up (healthy)   127.0.0.1:3307->3307/tcp
 cqa-nginx   Up             0.0.0.0:80->80/tcp
 ```
 

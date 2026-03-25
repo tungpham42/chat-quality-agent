@@ -46,12 +46,14 @@ Truy cập: **http://your-server-ip** (hoặc `http://localhost` nếu cài trê
 ### Bật SSL (tùy chọn)
 
 Thêm vào file `.env`:
+
 ```
 LEGO_DOMAIN=cqa.yourdomain.com
 LEGO_EMAIL=admin@yourdomain.com
 ```
 
 Trỏ DNS A record về IP server, sau đó restart:
+
 ```bash
 docker compose restart nginx
 ```
@@ -60,14 +62,14 @@ SSL sẽ tự động tạo và gia hạn qua Let's Encrypt.
 
 ## Công nghệ
 
-| Thành phần | Công nghệ |
-|-----------|-----------|
-| Backend | Go 1.25+ / Gin |
-| Frontend | Vue 3 + Vuetify 4 + Vite |
-| Database | MySQL 8.0 |
-| AI | Claude (Anthropic) / Gemini (Google) |
-| Reverse Proxy | Nginx + Let's Encrypt (Lego) |
-| Deploy | Docker Compose |
+| Thành phần    | Công nghệ                            |
+| ------------- | ------------------------------------ |
+| Backend       | Go 1.25+ / Gin                       |
+| Frontend      | Vue 3 + Vuetify 4 + Vite             |
+| Database      | MySQL 8.0                            |
+| AI            | Claude (Anthropic) / Gemini (Google) |
+| Reverse Proxy | Nginx + Let's Encrypt (Lego)         |
+| Deploy        | Docker Compose                       |
 
 ## Kiến trúc
 
@@ -83,7 +85,7 @@ SSL sẽ tự động tạo và gia hạn qua Let's Encrypt.
                     └──────┬───────┘
                            │
                     ┌──────┴───────┐
-                    │   MySQL 8.0  │ Port 3306 (internal)
+                    │   MySQL 8.0  │ Port 3307 (internal)
                     └──────────────┘
 ```
 
@@ -118,30 +120,30 @@ chat-quality-agent/
 
 ## Biến môi trường
 
-| Biến | Mô tả | Bắt buộc |
-|------|-------|----------|
-| `DB_PASSWORD` | Mật khẩu MySQL | Có |
-| `MYSQL_ROOT_PASSWORD` | Mật khẩu root MySQL | Có |
-| `JWT_SECRET` | Secret cho JWT tokens (min 32 ký tự) | Có |
-| `ENCRYPTION_KEY` | Key 32 bytes cho AES-256-GCM | Có |
-| `LEGO_DOMAIN` | Domain cho SSL tự động | Không |
-| `LEGO_EMAIL` | Email cho Let's Encrypt | Không |
-| `APP_URL` | URL công khai (cho links notification) | Không |
+| Biến                  | Mô tả                                  | Bắt buộc |
+| --------------------- | -------------------------------------- | -------- |
+| `DB_PASSWORD`         | Mật khẩu MySQL                         | Có       |
+| `MYSQL_ROOT_PASSWORD` | Mật khẩu root MySQL                    | Có       |
+| `JWT_SECRET`          | Secret cho JWT tokens (min 32 ký tự)   | Có       |
+| `ENCRYPTION_KEY`      | Key 32 bytes cho AES-256-GCM           | Có       |
+| `LEGO_DOMAIN`         | Domain cho SSL tự động                 | Không    |
+| `LEGO_EMAIL`          | Email cho Let's Encrypt                | Không    |
+| `APP_URL`             | URL công khai (cho links notification) | Không    |
 
 Xem đầy đủ trong [.env.example](.env.example).
 
 ## Screenshots
 
-| | |
-|---|---|
-| ![Setup](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/setup.png) | ![Dashboard](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/dashboard.png) |
-| Trang Setup lần đầu | Dashboard |
-| ![Kết nối kênh](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-noi-kenh-chat.png) | ![Tạo công việc](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/tao-cong-viec.png) |
-| Kết nối kênh chat | Tạo công việc |
-| ![Kết quả QC](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-qua-cong-viec-danh-gia.png) | ![Kết quả phân loại](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-qua-cong-viec-phan-loai.png) |
-| Kết quả đánh giá QC | Kết quả phân loại |
-| ![Chi tiết tin nhắn](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/chi-tiet-tin-nhan-va-danh-gia.png) | ![Chi tiết kênh](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/chi-tiet-kenh-chat.png) |
-| Chi tiết tin nhắn + đánh giá | Chi tiết kênh chat |
+|                                                                                                                                                     |                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Setup](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/setup.png)                                     | ![Dashboard](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/dashboard.png)                           |
+| Trang Setup lần đầu                                                                                                                                 | Dashboard                                                                                                                                         |
+| ![Kết nối kênh](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-noi-kenh-chat.png)                  | ![Tạo công việc](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/tao-cong-viec.png)                   |
+| Kết nối kênh chat                                                                                                                                   | Tạo công việc                                                                                                                                     |
+| ![Kết quả QC](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-qua-cong-viec-danh-gia.png)           | ![Kết quả phân loại](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/ket-qua-cong-viec-phan-loai.png) |
+| Kết quả đánh giá QC                                                                                                                                 | Kết quả phân loại                                                                                                                                 |
+| ![Chi tiết tin nhắn](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/chi-tiet-tin-nhan-va-danh-gia.png) | ![Chi tiết kênh](https://raw.githubusercontent.com/tanviet12/chat-quality-agent/main/docs/public/screenshots/chi-tiet-kenh-chat.png)              |
+| Chi tiết tin nhắn + đánh giá                                                                                                                        | Chi tiết kênh chat                                                                                                                                |
 
 ## Tài liệu
 

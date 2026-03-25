@@ -170,7 +170,7 @@ APP_ENV=production
 
 # Database
 DB_HOST=db
-DB_PORT=3306
+DB_PORT=3307
 DB_USER=cqa
 DB_PASSWORD=${DB_PASSWORD}
 DB_NAME=cqa
